@@ -1,1 +1,1 @@
-stow bash git starship tmux zsh
+stow bash git starship tmux zsh nvim 
