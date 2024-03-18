@@ -37,4 +37,6 @@ loadnvm() {
 alias nv='nvim'
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
 
+[[ -f ~/.zsh-autosuggestionis ]] && source ~/.zsh-autosuggestionis
+
 eval "$(starship init zsh)"
