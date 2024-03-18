@@ -1,0 +1,43 @@
+[user]
+    name = Josh Burgess
+    email = burgessj247@gmail.com
+
+[init]
+    defaultBranch = main
+
+[alias]
+    a = add
+    aa = add .
+    c = commit -v
+    cm = commit -m
+    co = checkout
+    cob = checkout -b
+    s = status
+    br = branch -A
+    d = diff
+    dd = diff --cached
+    l = log --oneline --graph
+    cp = cherry-pick
+    ps = push
+    pl = pull
+    pb = pull --rebase
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    line-numbers = true
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[includeIf "gitdir:~/work/"] # Add another gitconfig in work directory so that commit name matches work specific name
+    path = ~/work/.gitconfig
