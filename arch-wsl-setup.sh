@@ -26,7 +26,7 @@ exec zsh # Restart zsh
 sudo pacman -S tmux                                               # Install the terminal multiplexer. (We'll have some basic stuff set up in `~/.tmux.conf`)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm # Install the TMUX plugin manager.
 
-sudo pacman -S lolcat lsd neovim powerline k9s ripgrep
+sudo pacman -S lolcat lsd neovim powerline k9s ripgrep kubectx
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash # Installs node version manager and adds to .zshrc
 
