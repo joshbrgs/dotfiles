@@ -1,8 +1,8 @@
 # We're using lsd! The colors!
 if [ -x "$(command -v lsd)" ]; then
-    alias ls='lsd'
-    alias ll='lsd -l'
-    alias la='lsd -la'
+	alias ls='lsd'
+	alias ll='lsd -l'
+	alias la='lsd -la'
 fi
 
 # tmux
@@ -18,8 +18,8 @@ alias g="git"
 alias k="kubectl"
 
 # aws
-alias asso="aws sso login"
-
+alias asso="aws sso login --profile"
+alias akc="aws eks update-kubeconfig"
 # docker
 alias up="docker compose up -d"
 alias down="docker compose down"
@@ -31,3 +31,4 @@ alias dil="docker image ls"
 alias d="docker"
 
 # [[ -f ~/.ssh_aliases ]] && source ~/.ssh_aliases
+
