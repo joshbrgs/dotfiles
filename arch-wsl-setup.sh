@@ -26,7 +26,7 @@ exec zsh # Restart zsh
 sudo pacman -S tmux                                               # Install the terminal multiplexer. (We'll have some basic stuff set up in `~/.tmux.conf`)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm # Install the TMUX plugin manager.
 
-sudo pacman -S lolcat lsd neovim powerline k9s ripgrep kubectx
+sudo pacman -S lolcat lsd neovim powerline k9s ripgrep
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash # Installs node version manager and adds to .zshrc
 
@@ -45,3 +45,15 @@ sudo ./aws/install # AWS CLI
 curl -fL https://install-cli.jfrog.io | sh # JFrog CLI
 
 curl -fsSL https://deno.land/install.sh | sh # Deno
+
+# Install Krew
+(
+	set -x
+	cd "$(mktemp -d)" &&
+		OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+		ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+		KREW="krew-${OS}_${ARCH}" &&
+		curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+		tar zxvf "${KREW}.tar.gz" &&
+		./"${KREW}" install krew
+)

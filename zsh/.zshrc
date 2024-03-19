@@ -19,7 +19,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export ANDROID_HOME=/Users/josh/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
 
