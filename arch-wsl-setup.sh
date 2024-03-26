@@ -57,3 +57,5 @@ curl -fsSL https://deno.land/install.sh | sh # Deno
 		tar zxvf "${KREW}.tar.gz" &&
 		./"${KREW}" install krew
 )
+
+yay -S --noconfirm aws-session-manager-plugin

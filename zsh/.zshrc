@@ -8,6 +8,9 @@ export LC_ALL=en_US.UTF-8
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+{ eval `ssh-agent`; ssh-add ~/.ssh/bitbucket; ssh-add ~/.ssh/github } &>/dev/null
+
+
 #------------------------------------------------------
 # PATHs
 #------------------------------------------------------
