@@ -1,9 +1,6 @@
 # use 256 color terminal
 export TERM=xterm-256color
 
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 # use vim as standard editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -25,6 +22,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
+# tmuxifier
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 #------------------------------------------------------
 # Functions
@@ -54,4 +53,7 @@ alias nv='nvim'
 
 [[ -f ~/.zsh-autosuggestionis ]] && source ~/.zsh-autosuggestionis
 
+eval "$(tmuxifier init -)"
+
 eval "$(starship init zsh)"
+

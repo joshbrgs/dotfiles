@@ -7,6 +7,8 @@ fi
 
 # tmux
 alias retmux='tmux attach'
+alias te='tmuxifier edit-session'
+alias t='tmuxifier load-session'
 
 # pacman
 alias uu="sudo pacman -Syu"
@@ -31,4 +33,3 @@ alias dil="docker image ls"
 alias d="docker"
 
 # [[ -f ~/.ssh_aliases ]] && source ~/.ssh_aliases
-

@@ -70,7 +70,7 @@ crust = "#11111b"
 
 [os]
 disabled = false
-style = "bg:base fg:text"
+style = "bg:none fg:text"
 
 [os.symbols]
 Windows = "󰍲"
@@ -78,7 +78,7 @@ Ubuntu = "󰕈"
 SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
-Macos = " "
+Macos = "💩 "
 Manjaro = ""
 Linux = "󰌽"
 Gentoo = "󰣨"
@@ -86,7 +86,7 @@ Fedora = "󰣛"
 Alpine = ""
 Amazon = ""
 Android = ""
-Arch = "󰣇 "
+Arch = "💩 "
 Artix = "󰣇"
 CentOS = ""
 Debian = "󰣚"
