@@ -57,4 +57,6 @@ eval "$(tmuxifier init -)"
 
 eval "$(starship init zsh)"
 
+eval "$(fzf --zsh)"
+
 eval "$(zoxide init --cmd cd zsh)"
