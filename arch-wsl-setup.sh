@@ -70,4 +70,4 @@ wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_li
 unzip terraform_${TER_VER}_linux_amd64.zip
 
 sudo mv terraform /usr/local/bin/
-pacman -S zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash

@@ -8,7 +8,7 @@ fi
 # tmux
 alias retmux='tmux attach'
 alias te='tmuxifier edit-session'
-alias t='tmuxifier load-session'
+alias t='tmuxifier'
 
 # pacman
 alias uu="sudo pacman -Syu"
