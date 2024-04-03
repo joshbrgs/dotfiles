@@ -25,6 +25,10 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/.amplify/bin:$PATH"
 # tmuxifier
 export PATH="$HOME/.tmuxifier/bin:$PATH"
+# ~/.tmux/plugins
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# ~/.config/tmux/plugins
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 #------------------------------------------------------
 # Functions
@@ -53,8 +57,6 @@ alias nv='nvim'
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
 
 [[ -f ~/.zsh-autosuggestionis ]] && source ~/.zsh-autosuggestionis
-
-eval "$(chmod +x ~/.config/bin/t.sh)"
 
 eval "$(tmuxifier init -)"
 

@@ -72,3 +72,5 @@ unzip terraform_${TER_VER}_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 sudo pacman -S thefuck
+
+curl -fsSL https://ollama.com/install.sh | sh
