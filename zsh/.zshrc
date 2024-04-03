@@ -54,6 +54,8 @@ alias nv='nvim'
 
 [[ -f ~/.zsh-autosuggestionis ]] && source ~/.zsh-autosuggestionis
 
+eval "$(chmod +x ~/.config/bin/t.sh)"
+
 eval "$(tmuxifier init -)"
 
 eval "$(starship init zsh)"
@@ -61,3 +63,9 @@ eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
+
+eval "$(loadnvm)"
+
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
