@@ -70,7 +70,10 @@ wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_li
 unzip terraform_${TER_VER}_linux_amd64.zip
 
 sudo mv terraform /usr/local/bin/
+
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 sudo pacman -S thefuck
+
+npm install --global cdktf-cli@latest
 
 curl -fsSL https://ollama.com/install.sh | sh
