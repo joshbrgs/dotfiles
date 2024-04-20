@@ -39,6 +39,7 @@ whatsonport() {
     lsof -i tcp:$1
 }
 
+killport() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 # Enable nvm in the current shell.
 # Loading nvm by default is slow, and most of the time we don't need it.
 
@@ -65,8 +66,6 @@ eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
-
-eval "$(loadnvm)"
 
 eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:
