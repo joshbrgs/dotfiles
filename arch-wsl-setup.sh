@@ -77,3 +77,9 @@ sudo pacman -S thefuck
 npm install --global cdktf-cli@latest
 
 curl -fsSL https://ollama.com/install.sh | sh
+
+ollama pull codellama
+
+curl -fsSL https://get.pulumi.com | sh
+
+pacman -Syu bind

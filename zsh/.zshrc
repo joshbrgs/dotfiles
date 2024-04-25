@@ -29,7 +29,7 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.config/tmux/plugins
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
+export PATH=$HOME/.pulumi/bin:$PATH
 #------------------------------------------------------
 # Functions
 #------------------------------------------------------
@@ -46,7 +46,6 @@ killport() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/josh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/josh/google-cloud-sdk/path.zsh.inc'; fi
@@ -70,3 +69,6 @@ eval "$(zoxide init --cmd cd zsh)"
 eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:
 eval $(thefuck --alias FUCK)
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/jburgess/.pulumi/bin

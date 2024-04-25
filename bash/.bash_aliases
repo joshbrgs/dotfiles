@@ -33,3 +33,9 @@ alias dil="docker image ls"
 alias d="docker"
 
 # [[ -f ~/.ssh_aliases ]] && source ~/.ssh_aliases
+alias n="nv"
+alias c="cd"
+gt() {
+	git tag -a "$1" -m "$2"
+	git push --tags
+}
