@@ -56,7 +56,9 @@ if [ -f '/Users/josh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/josh
 alias nv='nvim'
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
 
-[[ -f ~/.zsh-autosuggestionis ]] && source ~/.zsh-autosuggestionis
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(tmuxifier init -)"
 
@@ -65,6 +67,8 @@ eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
+
+alias ls="eza --color=always --icons=always --long --git --no-filesize --no-time --no-user --no-permissions"
 
 eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:

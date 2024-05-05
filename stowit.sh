@@ -1,1 +1,1 @@
-stow bash git starship tmux zsh nvim tmuxifier 
+stow bash git starship tmux zsh nvim tmuxifier alacritty 
