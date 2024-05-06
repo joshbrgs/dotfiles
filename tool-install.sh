@@ -47,7 +47,7 @@ elif [ "$PACKAGE_MANAGER" = "pacman" ]; then
 elif [ "$PACKAGE_MANAGER" = "brew" ]; then
 	# Install using brew
 	INSTALL="brew install "
-  TOOLS="stow go rust deno terraform krew minikube gh protobuf zsh tmux lolcat lsd neovim powerline k9s ripgrep thefuck fzf neofetch htop bashtop jq "
+  TOOLS="stow go rust deno terraform krew minikube gh protobuf zsh tmux lolcat lsd neovim powerline k9s ripgrep thefuck fzf neofetch htop bashtop jq zsh-autosuggestions zsh-syntax-highlighting fd bat git-delta"
 else
 	echo "Unknown package manager: $PACKAGE_MANAGER":while [[ condition ]]; do
 	 

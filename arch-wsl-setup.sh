@@ -83,5 +83,6 @@ ollama pull codellama
 curl -fsSL https://get.pulumi.com | sh
 
 pacman -Syu bind
-
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sudo pacman -S base-devel procps-ng curl file git
 brew install alacritty
