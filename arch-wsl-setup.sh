@@ -83,3 +83,5 @@ ollama pull codellama
 curl -fsSL https://get.pulumi.com | sh
 
 pacman -Syu bind
+
+brew install alacritty
