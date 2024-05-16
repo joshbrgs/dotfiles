@@ -31,6 +31,7 @@ export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=$HOME/.pulumi/bin:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="$HOME/bin:$PATH"
 #------------------------------------------------------
 # Functions
 #------------------------------------------------------
@@ -64,6 +65,8 @@ fi
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source ~/bin/obsidian_functions.sh
 
 eval "$(tmuxifier init -)"
 

@@ -61,6 +61,7 @@ alias nv='nvim'
 # Eza, Zoxide, and bat shit
 alias ls="eza --color=always --icons=always --long --git --no-filesize --no-time --no-user --no-permissions"
 alias cl='clear'
+alias cat='bat -pp'
 
 # Dirs
 alias ..="cd .."
@@ -68,3 +69,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+
+# Obsidian
+alias oo='cd $HOME/projects/Obsidian/'
+alias or='vim $HOME/projects/Obsidian/inbox/*.md'
+alias ou='cd $HOME/notion-obsidian-sync-zazencodes && node batchUpload.js --lastmod-days-window 5'

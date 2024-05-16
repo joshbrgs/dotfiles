@@ -25,7 +25,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --padding="1" --prompt="🦐" --marker="🦄" --pointer="👻"
   --separator="─" --scrollbar="│" --info="right"'
 
-source $HOME/fzf-git.sh
+source $HOME/bin/fzf-git.sh
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
@@ -69,6 +69,6 @@ f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
 
 fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
-source $HOME/fzf_git_files.sh
-source $HOME/fzf_git_branch.sh
-source $HOME/fzf_git_commits.sh
+source $HOME/bin/fzf_git_files.sh
+source $HOME/bin/fzf_git_branch.sh
+source $HOME/bin/fzf_git_commits.sh

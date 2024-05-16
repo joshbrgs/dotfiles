@@ -4,7 +4,8 @@ sudo pacman -Syu
 sudo pacman -S archlinux-keyring
 
 sudo pacman -S --needed base-devel git procps-ng curl file
-mkdir Projects Downloads Documents bin Work
+cd ~
+mkdir projects Downloads Documents bin work
 cd Downloads
 git clone https://aur.archlinux.org/yay.git
 cd yay
