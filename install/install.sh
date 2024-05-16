@@ -46,14 +46,14 @@ elif [ "$SYSTEM" = "arch" ]; then
   ./bicep-curl.sh
   ./got.sh
   ./cargo-shipment.sh
-  ./stowit.sh
+  ../stowit.sh
 elif [ "$SYSTEM" = "mac" ]; then
 	# Install using brew
   ./brew-install.sh
   ./bicep-curl.sh
   ./got.sh
   ./cargo-shipment.sh
-  ./stowit.sh
+  ../stowit.sh
 else
 	echo "Unknown OS: $SYSTEM":while [[ condition ]]; do
 	 

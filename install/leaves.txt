@@ -1,9 +1,7 @@
 awscli
 bash
-bashtop
 bat
 cmake
-dig
 deno
 eksctl
 eza
