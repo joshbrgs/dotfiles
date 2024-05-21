@@ -54,6 +54,7 @@ gt() {
 	git tag -a "$1" -m "$2"
 	git push --tags
 }
+alias gg="g aa && g cm "Updates CI" && g ps && .. && ls"
 
 # Neovim
 alias nv='nvim'
