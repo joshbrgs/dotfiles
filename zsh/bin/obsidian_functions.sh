@@ -2,7 +2,7 @@
 
 # Directory containing markdown files
 VAULT_DIR="$HOME/projects/Obsidian/"
-SOURCE_DIR="inbox"
+SOURCE_DIR="zettlekasten"
 DEST_DIR="notes"
 
 og() {
