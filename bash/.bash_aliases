@@ -13,6 +13,9 @@ alias tm='tmuxifier'
 # pacman
 alias uu="sudo pacman -Syu"
 
+# homebrew
+alias hu="brew update && brew upgrade"
+
 # git
 alias g="git"
 
