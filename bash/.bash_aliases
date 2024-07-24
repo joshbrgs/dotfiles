@@ -1,14 +1,17 @@
 # We're using lsd! The colors!
 if [ -x "$(command -v lsd)" ]; then
-	alias ls='lsd'
-	alias ll='lsd -l'
-	alias la='lsd -la'
+  alias ls='lsd'
+  alias ll='lsd -l'
+  alias la='lsd -la'
 fi
 
 # tmux
 alias remux='tmux attach'
 alias te='tmuxifier edit-session'
 alias tm='tmuxifier'
+
+# terraform
+alias tf='terraform'
 
 # pacman
 alias uu="sudo pacman -Syu"
@@ -54,8 +57,8 @@ alias d="docker"
 alias n="nv"
 alias c="cd"
 gt() {
-	git tag -a "$1" -m "$2"
-	git push --tags
+  git tag -a "$1" -m "$2"
+  git push --tags
 }
 alias gg="g aa && g cm "Updates CI" && g ps && .. && ls"
 
