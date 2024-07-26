@@ -68,6 +68,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 source ~/bin/obsidian_functions.sh
 
+source ~/bin/kbuilder-autocomp.sh 
+
 eval "$(tmuxifier init -)"
 
 eval "$(starship init zsh)"
