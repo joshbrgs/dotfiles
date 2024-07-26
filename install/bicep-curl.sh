@@ -10,3 +10,6 @@ sudo ./aws/install
 curl "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-471.0.0-darwin-arm.tar.gz" && /
 tar -xvf google-cloud-cli-476.0.0-darwin-arm.tar.gz && /
 ./google-cloud-sdk/install.sh
+
+curl -L -o kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)"
+chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
