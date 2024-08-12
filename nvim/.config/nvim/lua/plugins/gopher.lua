@@ -20,8 +20,8 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>G"] = { name = "+gopher🦡" },
+      spec = {
+        { "<leader>G", group = "gopher🦡" },
       },
     },
   },

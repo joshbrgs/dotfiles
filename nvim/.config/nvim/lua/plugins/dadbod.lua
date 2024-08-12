@@ -29,8 +29,8 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>D"] = { name = "Dadbod💪" },
+      spec = {
+        { "<leader>D", group = "Dadbod💪" },
       },
     },
   },

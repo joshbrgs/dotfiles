@@ -46,8 +46,8 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>o"] = { name = "+Ollama🦙" },
+      spec = {
+        { "<leader>o", group = "Ollama🦙" },
       },
     },
   },
