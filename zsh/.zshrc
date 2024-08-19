@@ -32,6 +32,9 @@ export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=$HOME/.pulumi/bin:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$HOME/bin:$PATH"
+export PATH=$HOME/development/flutter/bin:$PATH
+export PATH=$HOME/.gem/bin:$PATH
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 #------------------------------------------------------
 # Functions
 #------------------------------------------------------
@@ -70,6 +73,8 @@ source ~/bin/obsidian_functions.sh
 
 source ~/bin/kbuilder-autocomp.sh 
 
+source /Users/josh/.rvm/scripts/rvm
+
 eval "$(tmuxifier init -)"
 
 eval "$(starship init zsh)"
@@ -84,3 +89,6 @@ eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 
 [[ -f ~/.fzfrc ]] && source ~/.fzfrc
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
