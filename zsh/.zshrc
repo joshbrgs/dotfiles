@@ -17,7 +17,7 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-export ANDROID_HOME=/Users/josh/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -65,6 +65,9 @@ if [[ $(uname) == "Linux" ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+autoload -Uz compinit
+compinit
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -73,7 +76,7 @@ source ~/bin/obsidian_functions.sh
 
 source ~/bin/kbuilder-autocomp.sh 
 
-source /Users/josh/.rvm/scripts/rvm
+source $HOME/.rvm/scripts/rvm
 
 eval "$(tmuxifier init -)"
 
