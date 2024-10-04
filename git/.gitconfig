@@ -43,3 +43,7 @@
 
 [includeIf "gitdir:~/work/"] # Add another gitconfig in work directory so that commit name matches work specific name
     path = ~/work/.gitconfig
+[credential]
+	helper = manager-core
+[push]
+	autoSetupRemote = true
