@@ -1,0 +1,148 @@
+{
+    "workbench.iconTheme": "catppuccin-perfect-mocha",
+    "files.autoSave": "afterDelay",
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.location": "top",
+    "files.exclude": {
+        "**/.git": false
+    },
+    "workbench.statusBar.visible": false,
+    "workbench.colorTheme": "Default High Contrast",
+    "explorer.confirmDelete": false,
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "terminal.integrated.defaultProfile.windows": "Arch (WSL)",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "Arch (WSL)": {
+            "path": "C:\\Windows\\System32\\wsl.exe",
+            "args": [
+                "-d",
+                "Arch"
+            ]
+        }
+    },
+    "vim.enableNeovim": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                ":"
+            ],
+            "commands": [
+                "workbench.action.showCommands",
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "t"
+            ],
+            "commands": [
+                "go.add.tags"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "l"
+            ],
+            "commands": [
+                "localaipilot.chatCodeReview"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "b"
+            ],
+            "commands": [
+                "localaipilot.chatBugFix"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "c"
+            ],
+            "commands": [
+                "localaipilot.openChat"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "z"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "j"
+            ],
+            "commands": [
+                "workbench.action.togglePanel"
+            ],
+            "silent": true
+        }
+    ],
+    "localaipilot.standalone.ollamaCodeModel": "codellama:code",
+    "localaipilot.standalone.ollamaModel": "codellama:code"
+}

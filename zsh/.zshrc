@@ -78,6 +78,8 @@ source ~/bin/kbuilder-autocomp.sh
 
 source $HOME/.rvm/scripts/rvm
 
+source $HOME/_deno
+
 eval "$(tmuxifier init -)"
 
 eval "$(starship init zsh)"
