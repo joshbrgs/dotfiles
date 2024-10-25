@@ -84,3 +84,6 @@ alias ......="cd ../../../../.."
 alias oo='cd $HOME/projects/Obsidian/'
 alias or='nvim $HOME/projects/Obsidian/inbox/*.md'
 alias ou='cd $HOME/bin/notion-sync && node batchUpload.js --lastmod-days-window 5'
+
+# Rust
+alias cr='cargo'
