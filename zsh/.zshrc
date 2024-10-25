@@ -13,6 +13,7 @@ export EDITOR="$VISUAL"
 #------------------------------------------------------
 export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export DENO_INSTALL="$HOME/.deno"

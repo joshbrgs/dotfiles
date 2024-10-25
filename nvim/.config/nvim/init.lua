@@ -1,3 +1,3 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
-require("lspconfig").protols.setup({})
+require("core.mappings")
+require("core.plugins")
+require("core.options")

@@ -65,6 +65,9 @@ alias gg="g aa && g cm "Updates CI" && g ps && .. && ls"
 # Neovim
 alias nv='nvim'
 
+# vscode
+alias c='code .'
+
 # Eza, Zoxide, and bat shit
 alias ls="eza --color=always --icons=always --long --git --no-filesize --no-time --no-user --no-permissions"
 alias cl='clear'
