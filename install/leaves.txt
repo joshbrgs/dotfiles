@@ -1,6 +1,7 @@
 awscli
 bash
 bat
+biome
 cmake
 deno
 eksctl

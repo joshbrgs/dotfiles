@@ -19,6 +19,16 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use {
+        'glepnir/lspsaga.nvim',
+        config = function()
+            require('lspsaga').setup({
+                code_action_icon = "💡",
+                border_style = "rounded", -- Optional: for better aesthetics
+            })
+        end,
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
     use({
         'rose-pine/neovim',

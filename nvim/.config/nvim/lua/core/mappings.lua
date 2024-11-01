@@ -1,4 +1,4 @@
-vim.g.mapleader = " " -- easy to reach leader key
+vim.g.mapleader = " "                -- easy to reach leader key
 vim.keymap.set("n", "-", vim.cmd.Ex) -- need nvim 0.8+
 
 -- Show command palette (like VSCode)
@@ -11,7 +11,9 @@ vim.keymap.set('n', '<leader><space>', ':Telescope find_files<CR>', { noremap = 
 vim.keymap.set('n', '<leader>gt', ':GoAddTag<CR>', { noremap = true, silent = true })
 
 -- Go test generate file
-vim.keymap.set('n', '<leader>ge', ':GoTestGenerate<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>gga', ':GoAddAllTest<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>grt', ':GoRmTag<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ge', ':GoIfErr<CR>', { noremap = true, silent = true })
 --
 -- -- Local AI Pilot Chat commands (replace with the plugin or custom command if available)
 -- vim.keymap.set('n', '<leader>ll', ':ChatCodeReview<CR>', { noremap = true, silent = true })
@@ -30,8 +32,17 @@ vim.keymap.set('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })
 -- Find in files (similar to actions.find)
 vim.keymap.set('n', '<leader>/', ':Telescope live_grep<CR>', { noremap = true, silent = true })
 
--- Quick fix (diagnostics or code actions)
-vim.keymap.set('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
+-- Open code actions in a floating modal window (side pane) with Lspsaga
+vim.keymap.set("n", "<leader>.", "<cmd>Lspsaga code_action<CR>")
+
+-- For visual mode (to select specific code parts)
+vim.keymap.set("v", "<leader>.", "<cmd><C-U>Lspsaga range_code_action<CR>")
+
+-- For renaming conventions
+vim.keymap.set("v", "<leader>r", ":Lspsaga rename<CR>")
+vim.keymap.set("v", "<leader>R", ":Lspsaga project_replace<CR>")
+
+
 
 -- Navigate buffers
 vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = true })
@@ -61,32 +72,33 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 -- Open terminal in a new horizontal split
-vim.keymap.set('n', '<leader>t', ':split | terminal<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', ':Lspsaga term_toggle<CR>')
+-- vim.keymap.set('n', '<leader>t', ':split | terminal<CR>', { noremap = true, silent = true })
 
 -- Open terminal in a vertical split (optional)
-vim.keymap.set('n', '<leader>vt', ':vsplit | terminal<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>vt', ':vsplit | terminal<CR>', { noremap = true, silent = true })
 -- Automatically go to normal mode from terminal with Esc
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 -- Create an autocmd to map keys when Netrw is loaded
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    -- Map 'a' to create a new file
-    vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
+    pattern = "netrw",
+    callback = function()
+        -- Map 'a' to create a new file
+        vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
 
-    -- Map 'd' to delete the selected file or directory
-    vim.keymap.set("n", "d", ":NetrwDelete<CR>", { buffer = true, silent = true }) -- Deletes the selected file
+        -- Map 'd' to delete the selected file or directory
+        vim.keymap.set("n", "d", ":NetrwDelete<CR>", { buffer = true, silent = true }) -- Deletes the selected file
 
-    -- Example: Use 'r' to refresh the directory listing
-    vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
+        -- Example: Use 'r' to refresh the directory listing
+        vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
 
-    -- Example: Map 'h' to go up a directory and 'l' to open a file or directory
-    vim.keymap.set("n", "h", "-", { buffer = true, silent = true }) -- Go up a directory
-    vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
+        -- Example: Map 'h' to go up a directory and 'l' to open a file or directory
+        vim.keymap.set("n", "h", "-", { buffer = true, silent = true })    -- Go up a directory
+        vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
 
-    -- Map 'q' to quit netrw
-    vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
-  end
+        -- Map 'q' to quit netrw
+        vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
+    end
 })
 
 vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>")

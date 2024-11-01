@@ -1,5 +1,13 @@
 # dotfiles
 
+<!--toc:start-->
+- [dotfiles](#dotfiles)
+  - [Installation](#installation)
+    - [Manual Installation](#manual-installation)
+    - [Using [GNU Stow](https://www.gnu.org/software/stow/) _(recommended)_](#using-gnu-stowhttpswwwgnuorgsoftwarestow-recommended)
+  - [Additional configuration](#additional-configuration)
+<!--toc:end-->
+
 A collection of my personal dotfiles.
 
 ## Installation
