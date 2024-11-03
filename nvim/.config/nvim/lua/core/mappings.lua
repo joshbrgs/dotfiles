@@ -81,24 +81,21 @@ vim.keymap.set('n', '<leader>t', ':Lspsaga term_toggle<CR>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 -- Create an autocmd to map keys when Netrw is loaded
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "netrw",
-    callback = function()
-        -- Map 'a' to create a new file
-        vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
+	pattern = "netrw",
+	callback = function()
+		-- Map 'a' to create a new file
+		vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
 
-        -- Map 'd' to delete the selected file or directory
-        vim.keymap.set("n", "d", ":NetrwDelete<CR>", { buffer = true, silent = true }) -- Deletes the selected file
+		-- Example: Use 'r' to refresh the directory listing
+		vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
 
-        -- Example: Use 'r' to refresh the directory listing
-        vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
+		-- Example: Map 'h' to go up a directory and 'l' to open a file or directory
+		vim.keymap.set("n", "h", "-", { buffer = true, silent = true }) -- Go up a directory
+		vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
 
-        -- Example: Map 'h' to go up a directory and 'l' to open a file or directory
-        vim.keymap.set("n", "h", "-", { buffer = true, silent = true })    -- Go up a directory
-        vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
-
-        -- Map 'q' to quit netrw
-        vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
-    end
+		-- Map 'q' to quit netrw
+		vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
+	end
 })
 
 vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>")
