@@ -60,6 +60,12 @@ yanky() {
   sudo systemctl restart systemd-binfmt
 }
 
+update() {
+  brew upgrade && brew update
+  sudo pacman -Syu
+  yay -Syyu
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
