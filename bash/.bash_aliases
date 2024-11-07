@@ -52,6 +52,7 @@ alias dvl="docker volume ls"
 alias dnl="docker network ls"
 alias dil="docker image ls"
 alias d="docker"
+alias dd="lazydocker"
 
 # [[ -f ~/.ssh_aliases ]] && source ~/.ssh_aliases
 alias n="nv"

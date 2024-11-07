@@ -1,4 +1,3 @@
-vim.g.mapleader = " "                -- easy to reach leader key
 vim.keymap.set("n", "-", vim.cmd.Ex) -- need nvim 0.8+
 
 -- Show command palette (like VSCode)
@@ -30,7 +29,13 @@ vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = tr
 vim.keymap.set('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })
 
 -- Find in files (similar to actions.find)
-vim.keymap.set('n', '<leader>/', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>/', function()
+    require('telescope.builtin').current_buffer_fuzzy_find()
+end, { desc = 'Search within current buffer' })
+
+vim.keymap.set('n', '<leader>?', function()
+    require('telescope.builtin').live_grep()
+end, { desc = 'Search across all files in project' })
 
 -- Open code actions in a floating modal window (side pane) with Lspsaga
 vim.keymap.set("n", "<leader>.", "<cmd>Lspsaga code_action<CR>")
@@ -81,21 +86,21 @@ vim.keymap.set('n', '<leader>t', ':Lspsaga term_toggle<CR>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 -- Create an autocmd to map keys when Netrw is loaded
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "netrw",
-	callback = function()
-		-- Map 'a' to create a new file
-		vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
+    pattern = "netrw",
+    callback = function()
+        -- Map 'a' to create a new file
+        vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
 
-		-- Example: Use 'r' to refresh the directory listing
-		vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
+        -- Example: Use 'r' to refresh the directory listing
+        vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
 
-		-- Example: Map 'h' to go up a directory and 'l' to open a file or directory
-		vim.keymap.set("n", "h", "-", { buffer = true, silent = true }) -- Go up a directory
-		vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
+        -- Example: Map 'h' to go up a directory and 'l' to open a file or directory
+        vim.keymap.set("n", "h", "-", { buffer = true, silent = true })    -- Go up a directory
+        vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
 
-		-- Map 'q' to quit netrw
-		vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
-	end
+        -- Map 'q' to quit netrw
+        vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
+    end
 })
 
 vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>")
@@ -105,3 +110,7 @@ vim.keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
 vim.keymap.set("n", "<leader>ok", ":!mv '%:p' ~/projects/Obsidian/zettlekasten<cr>:bd<cr>")
 -- delete file in current buffer
 vim.keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>")
+
+vim.api.nvim_set_keymap('n', '<leader>gs', ':Git<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true, silent = true })
