@@ -86,18 +86,14 @@ return {
 
             require('mason-lspconfig').setup({
                 ensure_installed = { 'lua_ls', 'rust_analyzer', 'gopls', 'pyright' },
+
                 handlers = {
-                    -- this first function is the "default handler"
-                    -- it applies to every language server without a "custom handler"
-                    function(server_name)
-                        require('lspconfig')[server_name].setup({})
-                    end,
+                    -- Default handler
                     function(server_name)
                         require('lspconfig')[server_name].setup({
                             on_attach = function(client, bufnr)
-                                -- Check if the server supports document formatting
+                                -- Enable format-on-save if supported
                                 if client.server_capabilities.documentFormattingProvider then
-                                    -- Create autocmd to format on save
                                     vim.api.nvim_create_autocmd("BufWritePre", {
                                         group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
                                         buffer = bufnr,
@@ -106,10 +102,11 @@ return {
                                         end,
                                     })
                                 end
-                            end
+                            end,
                         })
                     end,
 
+                    -- Custom handler for biome
                     biome = function()
                         require('lspconfig').biome.setup({
                             single_file_support = false,
@@ -121,11 +118,12 @@ return {
                                         vim.cmd("!biome format %")
                                     end,
                                 })
-                            end
+                            end,
                         })
                     end,
                 }
-            })
+            }
+            )
         end
     }
 }
