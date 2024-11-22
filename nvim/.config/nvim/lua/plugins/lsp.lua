@@ -4,7 +4,6 @@ return {
         lazy = false,
         opts = {},
     },
-
     -- Autocompletion
     { 'saadparwaiz1/cmp_luasnip' },
     {
