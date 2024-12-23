@@ -62,6 +62,7 @@ gt() {
   git push --tags
 }
 alias gg="g aa && g cm "Updates CI" && g ps && .. && ls"
+alias x="exit"
 
 # Neovim
 alias nv='nvim'

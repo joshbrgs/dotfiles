@@ -1,5 +1,5 @@
-vim.keymap.set("n", "-", vim.cmd.Ex) -- need nvim 0.8+
-
+-- vim.keymap.set("n", "-", vim.cmd.Ex) -- need nvim 0.8+
+vim.keymap.set("n", "<space>!x", "<cmd>source %<CR>")
 -- Show command palette (like VSCode)
 vim.keymap.set('n', '<leader>:', ':Telescope commands<CR>', { noremap = true, silent = true })
 
