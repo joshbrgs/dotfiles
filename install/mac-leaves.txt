@@ -44,5 +44,4 @@ zoxide
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
-koekeishiya/formulae/yabai
 koekeishiya/formulae/skhd
