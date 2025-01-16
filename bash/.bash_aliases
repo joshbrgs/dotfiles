@@ -1,3 +1,4 @@
+alias help='cat $HOME/.bash_aliases'
 # We're using lsd! The colors!
 if [ -x "$(command -v lsd)" ]; then
   alias ls='lsd'
@@ -21,6 +22,9 @@ alias hu="brew update && brew upgrade"
 
 # git
 alias g="git"
+function gaa() {
+    git add . && git commit -m "$1" && git push
+}
 
 # kubectl
 alias k="kubectl"
@@ -61,7 +65,6 @@ gt() {
   git tag -a "$1" -m "$2"
   git push --tags
 }
-alias gg="g aa && g cm "Updates CI" && g ps && .. && ls"
 alias x="exit"
 
 # Neovim
