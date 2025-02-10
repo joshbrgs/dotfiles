@@ -115,10 +115,7 @@ vim.api.nvim_set_keymap('n', '<leader>gs', ':Git<CR>', { noremap = true, silent 
 vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true, silent = true })
 
--- -- Navigate vim panes better
--- vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
--- vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
--- vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
--- vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+-- Dismiss Noice Messages
+vim.keymap.set("n","<leader>nd","<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice notice"})
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
