@@ -19,6 +19,7 @@ vim.opt.splitright = true     -- open new horizontal splits right
 vim.opt.termguicolors = true  -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = false
 
+vim.wo.number = true
 -- vim.cmd [[
 --   highlight Normal guibg=none
 --   highlight NonText guibg=none

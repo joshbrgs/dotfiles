@@ -1,4 +1,4 @@
-alias help='cat $HOME/.bash_aliases'
+alias help='bat $HOME/.bash_aliases'
 # We're using lsd! The colors!
 if [ -x "$(command -v lsd)" ]; then
   alias ls='lsd'
@@ -8,8 +8,8 @@ fi
 
 # tmux
 alias remux='tmux attach'
-alias te='tmuxifier edit-session'
-alias tm='tmuxifier'
+# alias te='tmuxifier edit-session'
+# alias tm='tmuxifier'
 
 # terraform
 alias tf='terraform'
@@ -59,7 +59,6 @@ alias d="docker"
 alias dd="lazydocker"
 
 # [[ -f ~/.ssh_aliases ]] && source ~/.ssh_aliases
-alias n="nv"
 alias c="cd"
 gt() {
   git tag -a "$1" -m "$2"
@@ -68,6 +67,7 @@ gt() {
 alias x="exit"
 
 # Neovim
+alias n="nv"
 alias nv='nvim'
 
 # vscode
@@ -92,3 +92,8 @@ alias ou='cd $HOME/bin/notion-sync && node batchUpload.js --lastmod-days-window 
 
 # Rust
 alias cr='cargo'
+
+# Golang
+alias gmt='go mod tidy'
+alias gr='go run'
+alias gta='go test ./...'

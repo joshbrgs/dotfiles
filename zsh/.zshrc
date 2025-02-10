@@ -25,11 +25,10 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
 # tmuxifier
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-# ~/.tmux/plugins
-export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
+# export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.config/tmux/plugins
-export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=$HOME/.pulumi/bin:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$HOME/bin:$PATH"
@@ -93,7 +92,7 @@ source $HOME/.rvm/scripts/rvm
 
 source $HOME/_deno
 
-eval "$(tmuxifier init -)"
+# eval "$(tmuxifier init -)"
 
 eval "$(starship init zsh)"
 
@@ -110,4 +109,4 @@ eval $(thefuck --alias FUCK)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-. "/Users/josh/.deno/env"
+. "$HOME/.deno/env"
