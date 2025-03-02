@@ -4,7 +4,7 @@ return {
         lazy = false,
         config = function()
             require("mason").setup({
-                ensure_installed = { 'lua_ls', 'rust_analyzer', 'gopls', 'pyright' },
+                ensure_installed = { 'lua_ls', 'rust_analyzer', 'gopls', 'pyright', 'ts_ls', 'java_language_server' },
 
                 handlers = {
                     -- Default handler
@@ -109,6 +109,14 @@ return {
             })
             lspconfig.lua_ls.setup({
                 capabilities = capabilities
+            })
+
+            lspconfig.ts_ls.setup({
+              capabilities = capabilities
+            })
+
+            lspconfig.java_language_server.setup({
+              capabilities = capabilities
             })
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

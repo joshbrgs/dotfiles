@@ -5,6 +5,9 @@ vim.keymap.set('n', '<leader>:', ':Telescope commands<CR>', { noremap = true, si
 
 -- Quick open (files)
 vim.keymap.set('n', '<leader><space>', ':Telescope find_files<CR>', { noremap = true, silent = true })
+-- Error Message 
+vim.api.nvim_set_keymap('n', '<leader>ed', ':lua require("telescope.builtin").diagnostics({ bufnr = 0 })<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ee', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true })
 
 -- Go add tags (using nvim-go or go.nvim)
 vim.keymap.set('n', '<leader>gt', ':GoAddTag<CR>', { noremap = true, silent = true })
