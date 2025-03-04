@@ -44,6 +44,17 @@ alias kcns='kubectl config set-context --current --namespace'
 # aws
 alias asso="aws sso login --profile"
 alias akc="aws eks update-kubeconfig"
+list_profiles() {
+    local file="${1:-$HOME/.aws/config}"  # Default to ~/.aws/config if no file is provided
+
+    if [[ ! -f "$file" ]]; then
+        echo "Error: File '$file' not found."
+        return 1
+    fi
+
+    grep '^\[profile ' "$file" | sed -E 's/^\[profile ([^]]+)].*/\1/' | nl
+}
+
 # docker
 alias up="docker compose up -d"
 alias down="docker compose down"
