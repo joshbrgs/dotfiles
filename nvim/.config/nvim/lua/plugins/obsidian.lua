@@ -32,7 +32,7 @@ return {
                     },
                 },
                 completion = {
-                    nvim_cmp = true, -- Enable nvim-cmp for Obsidian note completion
+                    -- nvim_cmp = true, -- Enable nvim-cmp for Obsidian note completion
                     min_chars = 2,
                 },
             })

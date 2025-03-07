@@ -1,73 +1,49 @@
 return {
   {
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  {
-    "hrsh7th/cmp-cmdline",
-    event = "InsertEnter",
-    config = function()
-      local cmp = require("cmp")
-      local config = cmp.get_config()
-      table.insert(config.sources, {
-        name = "path",
-      })
-      table.insert(config.sources, {
-        name = "cmdline",
-        option = {
-          ignore_cmds = { "Man", "!" },
-        },
-      })
-      config.mapping = cmp.mapping.preset.cmdline()
-      -- `:` cmdline setup.
-      cmp.setup.cmdline(":", config)
-      -- `/` cmdline setup.
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
-      cmp.setup(config)
-    end,
-  },
-  {
-    "L3MON4D3/LuaSnip",
+    "neovim/nvim-lspconfig",
     dependencies = {
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
+      'saghen/blink.cmp',
+      {
+        "folke/lazydev.nvim",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
     },
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    version = false,
     config = function()
-      local cmp = require("cmp")
-      require("luasnip.loaders.from_vscode").lazy_load()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      require("lspconfig").lua_ls.setup { capabilites = capabilities }
+      -- import mason_lspconfig plugin
+      local mason_lspconfig = require("mason-lspconfig")
+      local lspconfig = require("lspconfig")
 
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
-        },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" },           -- For luasnip users.
-        }, {
-          { name = "buffer" },
-        }),
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local c = vim.lsp.get_client_by_id(args.data.client_id)
+          if not c then return end
+
+          if vim.bo.filetype == "lua" then
+            -- Format the current buffer on save
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = args.buf,
+              callback = function()
+                vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
+              end,
+            })
+          end
+        end,
+      })
+
+      mason_lspconfig.setup_handlers({
+        -- default handler for installed servers
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
       })
     end,
-  },
+  }
 }
