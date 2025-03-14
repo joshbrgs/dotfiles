@@ -29,7 +29,7 @@ return { {
       { desc = "Open harpoon window" })
 
     -- Key mappings for Harpoon
-    vim.keymap.set("n", "<C-h>", function() harpoon:list():add() end)
+    vim.keymap.set("n", "<C-f>", function() harpoon:list():add() end)
     -- vim.keymap.set("n", "<C-e>", function() harpoon.ui.toggle_quick_menu() end, { desc = "Harpoon Quick Menu" })
 
     vim.keymap.set("n", "<C-z>", function() harpoon:list():select(1) end)
