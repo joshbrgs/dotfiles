@@ -6,6 +6,37 @@ if [ -x "$(command -v lsd)" ]; then
   alias la='lsd -la'
 fi
 
+#------------------------------------------------------
+# Misc Functions
+#------------------------------------------------------
+
+# Find out what's running on a given port
+function whatsonport() {
+    lsof -i tcp:$1
+}
+
+function killport() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
+
+# Enable nvm in the current shell.
+function snvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+# For windows, when wsl acts up on yank and paste
+function yanky() {
+  echo ':WSLInterop:M::MZ::/init:PF' | sudo tee /usr/lib/binfmt.d/WSLInterop.conf
+  sudo systemctl restart systemd-binfmt
+}
+
+function uu() {
+  brew upgrade && brew update
+  sudo pacman -Syu
+  yay -Syyu
+}
+# ---------------------------------------------
+
 # tmux
 alias remux='tmux attach'
 # alias te='tmuxifier edit-session'
@@ -13,12 +44,6 @@ alias remux='tmux attach'
 
 # terraform
 alias tf='terraform'
-
-# pacman
-alias uu="sudo pacman -Syu"
-
-# homebrew
-alias hu="brew update && brew upgrade"
 
 # git
 alias g="git"
