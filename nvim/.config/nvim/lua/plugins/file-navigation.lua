@@ -33,7 +33,7 @@ return {
       {
         "-",
         mode = { 'n', 'v' },
-        "<cmd>Yazi cwd<cr>",
+        "<cmd>Yazi<cr>",
         desc = "Open the file manager in nvim's working directory",
       },
       {

@@ -2,7 +2,6 @@
 vim.keymap.set("n", "<space>!x", "<cmd>source %<CR>")
 -- Show command palette (like VSCode)
 vim.keymap.set('n', '<leader>:', ':Telescope commands<CR>', { noremap = true, silent = true })
-
 -- Quick open (files)
 vim.keymap.set('n', '<leader><space>', ':Telescope find_files<CR>', { noremap = true, silent = true })
 -- Error Message
