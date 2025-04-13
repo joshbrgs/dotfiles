@@ -2,6 +2,7 @@
 
 command_timeout = 1600
 
+# Catpuccin
 format = """
 $os\
 [](surface0)\

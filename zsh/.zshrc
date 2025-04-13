@@ -35,6 +35,45 @@ export PATH="$HOME/bin:$PATH"
 export PATH=$HOME/development/flutter/bin:$PATH
 export PATH=$HOME/.gem/bin:$PATH
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+export STARSHIP_CONFIG=$HOME/.config/rose-starship.toml
+#------------------------------------------------------
+# Functions
+#------------------------------------------------------
+
+# Find out what's running on a given port
+whatsonport() {
+    lsof -i tcp:$1
+}
+
+killport() { lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 }
+
+# Enable nvm in the current shell.
+snvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+# For windows, when wsl acts up on yank and paste
+yanky() {
+  echo ':WSLInterop:M::MZ::/init:PF' | sudo tee /usr/lib/binfmt.d/WSLInterop.conf
+  sudo systemctl restart systemd-binfmt
+}
+
+update() {
+  brew upgrade && brew update
+  sudo pacman -Syu
+  yay -Syyu
+}
+
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi

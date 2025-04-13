@@ -5,7 +5,8 @@ window-padding-balance = true
 background-opacity = 0.70
 background-blur-radius = 20
 
-theme = catppuccin-mocha
+# theme = catppuccin-mocha
+theme = rose-pine
 
 bold-is-bright = true
 background = #101216

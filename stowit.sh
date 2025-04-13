@@ -1,1 +1,1 @@
-stow bash bat git ghostty starship tmux zsh nvim 
+stow bash bat git ghostty starship tmux zsh nvim yazi
