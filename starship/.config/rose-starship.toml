@@ -36,7 +36,7 @@ iris = '#c4a7e7'
 
 [directory]
 format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
-style = "bg:overlay fg:pine"
+style = "bg:overlay fg:gold"
 truncation_length = 3
 truncation_symbol = "…/"
 
