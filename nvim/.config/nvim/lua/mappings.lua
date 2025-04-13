@@ -5,9 +5,74 @@ vim.keymap.set('n', '<leader>:', ':Telescope commands<CR>', { noremap = true, si
 
 -- Quick open (files)
 vim.keymap.set('n', '<leader><space>', ':Telescope find_files<CR>', { noremap = true, silent = true })
--- Error Message 
-vim.api.nvim_set_keymap('n', '<leader>ed', ':lua require("telescope.builtin").diagnostics({ bufnr = 0 })<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ee', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true })
+-- Error Message
+vim.api.nvim_set_keymap('n', '<leader>de', ':lua require("telescope.builtin").diagnostics({ bufnr = 0 })<CR>',
+  { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>ee', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
+--   { noremap = true, silent = true })
+
+-- spell check
+vim.keymap.set("n", "<leader>ll", ":setlocal spell spelllang=en_us<CR>")
+
+-- lsp setup
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gr", function()
+  -- Trigger the LSP references function and populate the quickfix list
+  vim.lsp.buf.references()
+
+  vim.defer_fn(function()
+    -- Set up an autocmd to remap keys in the quickfix window
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "qf", -- Only apply this mapping in quickfix windows
+      callback = function()
+        -- Remap <Enter> to jump to the location and close the quickfix window
+        vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<CR>:cclose<CR>", { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(0, "n", "q", ":cclose<CR>", { noremap = true, silent = true })
+
+        -- Set up <Tab> to cycle through quickfix list entries
+        vim.keymap.set("n", "<Tab>", function()
+          local current_idx = vim.fn.getqflist({ idx = 0 }).idx
+          local qflist = vim.fn.getqflist() -- Get the current quickfix list
+          if current_idx >= #qflist then
+            vim.cmd("cfirst")
+            vim.cmd("wincmd p")
+          else
+            vim.cmd("cnext")
+            vim.cmd("wincmd p")
+          end
+        end, { noremap = true, silent = true, buffer = 0 })
+
+        vim.keymap.set("n", "<S-Tab>", function()
+          local current_idx = vim.fn.getqflist({ idx = 0 }).idx
+          if current_idx < 2 then
+            vim.cmd("clast")
+            vim.cmd("wincmd p")
+          else
+            vim.cmd("cprev")
+            vim.cmd("wincmd p")
+          end
+        end, { noremap = true, silent = true, buffer = 0 })
+      end,
+    })
+  end, 0)
+end)
+
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+
+-- see error
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+
+-- go to errors
+vim.keymap.set("n", "[e", vim.diagnostic.goto_next)
+vim.keymap.set("n", "]e", vim.diagnostic.goto_next)
+
+-- Center upon quick up and downs
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
 -- Go add tags (using nvim-go or go.nvim)
 vim.keymap.set('n', '<leader>gt', ':GoAddTag<CR>', { noremap = true, silent = true })
@@ -33,11 +98,11 @@ vim.keymap.set('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })
 
 -- Find in files (similar to actions.find)
 vim.keymap.set('n', '<leader>/', function()
-    require('telescope.builtin').current_buffer_fuzzy_find()
+  require('telescope.builtin').current_buffer_fuzzy_find()
 end, { desc = 'Search within current buffer' })
 
 vim.keymap.set('n', '<leader>?', function()
-    require('telescope.builtin').live_grep()
+  require('telescope.builtin').live_grep()
 end, { desc = 'Search across all files in project' })
 
 -- Open code actions in a floating modal window (side pane) with Lspsaga
@@ -89,21 +154,21 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 -- Create an autocmd to map keys when Netrw is loaded
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "netrw",
-    callback = function()
-        -- Map 'a' to create a new file
-        vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
+  pattern = "netrw",
+  callback = function()
+    -- Map 'a' to create a new file
+    vim.keymap.set("n", "a", ":ene!<CR>:w<CR>", { buffer = true, silent = true }) -- Creates a new file and opens it
 
-        -- Example: Use 'r' to refresh the directory listing
-        vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
+    -- Example: Use 'r' to refresh the directory listing
+    vim.keymap.set("n", "r", "<Cmd>Rex<CR>", { buffer = true, silent = true })
 
-        -- Example: Map 'h' to go up a directory and 'l' to open a file or directory
-        vim.keymap.set("n", "h", "-", { buffer = true, silent = true })    -- Go up a directory
-        vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
+    -- Example: Map 'h' to go up a directory and 'l' to open a file or directory
+    vim.keymap.set("n", "h", "-", { buffer = true, silent = true })    -- Go up a directory
+    vim.keymap.set("n", "l", "<CR>", { buffer = true, silent = true }) -- Open a file or directory
 
-        -- Map 'q' to quit netrw
-        vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
-    end
+    -- Map 'q' to quit netrw
+    vim.keymap.set("n", "q", ":q<CR>", { buffer = true, silent = true })
+  end
 })
 
 vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>")
@@ -119,6 +184,6 @@ vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', { noremap = true, 
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true, silent = true })
 
 -- Dismiss Noice Messages
-vim.keymap.set("n","<leader>nd","<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice notice"})
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice notice" })
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
