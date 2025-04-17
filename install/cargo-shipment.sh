@@ -1,1 +1,2 @@
-cargo install alacritty
+cargo install starship xcp --locked
+cargo install sd

@@ -13,3 +13,5 @@ tar -xvf google-cloud-cli-476.0.0-darwin-arm.tar.gz && /
 
 curl -L -o kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)"
 chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
+
+curl -fsSL https://get.pnpm.io/install.sh | sh -

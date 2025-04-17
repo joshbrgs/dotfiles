@@ -60,6 +60,4 @@ else
 	done
 fi
 
-ollama pull codellama
-
 echo -e "Thank you for installing \xF0\x9F\x92\xA9 you may still need global npm tools; and please run exec zsh" | lolcat
