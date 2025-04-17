@@ -103,10 +103,13 @@ eval "$(fzf --zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
 
-eval $(thefuck --alias)
-
-# You can use whatever the fuck you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
+# eval $(thefuck --alias)
+#
+# # You can use whatever the fuck you want as an alias, like for Mondays:
+# eval $(thefuck --alias FUCK)
+#
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
 
 [[ -f ~/.fzfrc ]] && source ~/.fzfrc
 
