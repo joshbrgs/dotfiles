@@ -48,6 +48,9 @@ return {
       lspconfig.astro.setup({
         capabilities = capabilities,
       })
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities,
+      })
       lspconfig.sqlls.setup({
         capabilities = capabilities,
       })
