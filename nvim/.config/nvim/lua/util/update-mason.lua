@@ -20,8 +20,8 @@ local function check_done(running_count, any_update)
 end
 
 function util.update_all()
-  local any_update = false   -- Whether any package was updated
-  local running_count = 0    -- Currently running jobs
+  local any_update = false -- Whether any package was updated
+  local running_count = 0  -- Currently running jobs
   local done_launching_jobs = false
 
   print('[mason-update-all] Fetching updates')
