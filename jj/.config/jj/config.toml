@@ -10,6 +10,12 @@ email = "josh@joshb.io"
 [--scope.user]
 email = "josh.burgess@bigideaslearning.com"
 
+# override user.email if the repository is located under ~/oss
+[[--scope]]
+--when.repositories = ["/mnt/c/Users/jburgess/work"]
+[--scope.user]
+email = "josh.burgess@bigideaslearning.com"
+
 [ui]
 editor = "nvim"
 bookmark-list-sort-keys = ["name"]
